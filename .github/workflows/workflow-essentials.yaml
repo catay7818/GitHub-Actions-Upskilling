@@ -4,6 +4,7 @@ on: push
 jobs:
   upload-artifact:
     name: Upload artifact
+    runs-on: ubuntu-latest
     steps:
       - shell: bash
         run: expr 1 + 1 > output.log
@@ -14,6 +15,7 @@ jobs:
           path: output.log
   download-artifact:
     name: Download Artifact
+    runs-on: ubuntu-latest
     needs: upload-artifact
     steps:
       - name: Download a single artifact
