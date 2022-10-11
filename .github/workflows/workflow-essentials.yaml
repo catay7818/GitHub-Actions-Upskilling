@@ -1,7 +1,23 @@
 name: Workflow Essentials
 run-name: ${{ github.actor }} is testing essential workflow items
 on: workflow_dispatch # manually trigger this workflow
+env:
+  DAY_OF_WEEK: Monday
 jobs:
+
+  # Env variables
+  demonstrate-env-variables:
+    name: Demonstrate Env variables
+    runs-on: ubuntu-latest
+    env:
+      GREETING: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$GREETING $FIRST_NAME. Today is $DAY_OF_WEEK"
+        env:
+          FIRST_NAME: Mona
+
+  # Inter-job Communication
   upload-artifact:
     name: Upload artifact
     runs-on: ubuntu-latest
