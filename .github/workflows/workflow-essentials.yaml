@@ -1,6 +1,6 @@
 name: Workflow Essentials
 run-name: ${{ github.actor }} is testing essential workflow items
-on: push
+on: workflow_dispatch # manually trigger this workflow
 jobs:
   upload-artifact:
     name: Upload artifact
