@@ -1,5 +1,6 @@
 name: Workflow Essentials
 run-name: ${{ github.actor }} is testing essential workflow items
+on: push
 jobs:
   upload-artifact:
     name: Upload artifact
