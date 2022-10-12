@@ -1,5 +1,5 @@
 name: Workflow Essentials
-run-name: ${{ github.actor }} is testing essential workflow items
+run-name: ${{ github.actor }} is adding ${{ inputs.firstValue }} and ${{ inputs.secondValue }}
 
 on:
   workflow_dispatch:
