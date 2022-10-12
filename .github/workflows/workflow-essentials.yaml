@@ -37,12 +37,12 @@ jobs:
     steps:
       - name: Add values
         shell: bash
-        run: expr ${{ inputs.firstValue }} + ${{ inputs.secondValue }} > output.log
+        run: expr ${{ inputs.firstValue }} + ${{ inputs.secondValue }} > sum.log
       - name: Upload result
         uses: actions/upload-artifact@v3
         with:
-          name: output-log-file
-          path: output.log
+          name: sum-file
+          path: sum.log
   download-artifact:
     name: Download & Print Result
     runs-on: ubuntu-latest
@@ -51,7 +51,7 @@ jobs:
       - name: Download result
         uses: actions/download-artifact@v3
         with:
-          name: output-log-file
+          name: sum-file
       - name: Print result
         shell: bash
-        run: cat output.log
+        run: cat sum.log
