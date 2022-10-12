@@ -1,8 +1,21 @@
 name: Workflow Essentials
 run-name: ${{ github.actor }} is testing essential workflow items
-on: workflow_dispatch # manually trigger this workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      firstValue:
+        type: number
+        description: The first value to add
+        default: 1
+      secondValue:
+        type: number
+        description: The second value to add
+        default: 2
+
 env:
   DAY_OF_WEEK: Monday
+
 jobs:
 
   # Env variables
@@ -23,7 +36,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - shell: bash
-        run: expr 1 + 1 > output.log
+        run: expr ${{ inputs.firstValue }} + ${{ inputs.secondValue }} > output.log
       - name: Upload output file
         uses: actions/upload-artifact@v3
         with:
